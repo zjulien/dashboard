@@ -21,6 +21,14 @@ class ComposerStaticInit4d34ac8a51f2d3e79360f81ec34b69a5
             'Symfony\\Polyfill\\Mbstring\\' => 26,
             'Symfony\\Polyfill\\Ctype\\' => 23,
         ),
+        'D' => 
+        array (
+            'Dotenv\\' => 7,
+        ),
+        'A' => 
+        array (
+            'App\\' => 4,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
@@ -36,6 +44,14 @@ class ComposerStaticInit4d34ac8a51f2d3e79360f81ec34b69a5
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-ctype',
         ),
+        'Dotenv\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/vlucas/phpdotenv/src',
+        ),
+        'App\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src',
+        ),
     );
 
     public static $prefixesPsr0 = array (
@@ -46,6 +62,17 @@ class ComposerStaticInit4d34ac8a51f2d3e79360f81ec34b69a5
                 0 => __DIR__ . '/..' . '/twig/twig/lib',
             ),
         ),
+        'P' => 
+        array (
+            'PhpOption\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/phpoption/phpoption/src',
+            ),
+        ),
+    );
+
+    public static $classMap = array (
+        'AltoRouter' => __DIR__ . '/..' . '/altorouter/altorouter/AltoRouter.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
@@ -54,6 +81,7 @@ class ComposerStaticInit4d34ac8a51f2d3e79360f81ec34b69a5
             $loader->prefixLengthsPsr4 = ComposerStaticInit4d34ac8a51f2d3e79360f81ec34b69a5::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit4d34ac8a51f2d3e79360f81ec34b69a5::$prefixDirsPsr4;
             $loader->prefixesPsr0 = ComposerStaticInit4d34ac8a51f2d3e79360f81ec34b69a5::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit4d34ac8a51f2d3e79360f81ec34b69a5::$classMap;
 
         }, null, ClassLoader::class);
     }

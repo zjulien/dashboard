@@ -37,7 +37,11 @@ class Template {
             );
         }
 
-
+        public function renderBlock( string $path, string $block, $params = [] ):string
+        {
+           $templateLoad = $this->template->load( $path );      
+           return $templateLoad->renderBlock( $block, $params );
+        }
         // en php on déclare le retour de la fonction juste après les paramètres
         public function render (string $path, array $params = []):string {
             return $this->template->render(

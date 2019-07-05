@@ -18,6 +18,6 @@ class DefaultController extends Controller {
 
     function index () {
         
-        return $this->twig->render('index.html.twig');
+        return $this->twig->render('home.html.twig');
     }
 }

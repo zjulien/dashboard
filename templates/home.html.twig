@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+<h1> babar le moche </h1>
+<form method="post" action="index.php">
+    
+    <div class="input-group">
+    <label>Nom</label>
+    <input type="text" name="lastname">
+</div>
+<div class="input-group">
+    <label>Prenom</label>
+    <input type="text" name="firstname">
+</div>
+<div class="input-group">
+    <label>Email</label>
+    <input type="text" name="email">
+</div>
+<div class="input-group">
+    <label>Mot de passe</label>
+    <input type="password" name="password">
+    </div>
+    <div class="input-group">
+    <label>confirmer mot de passe</label>
+    <input type="password" name="password">
+</div>
+<div class="input-group">
+    <button type="submit" name="register" class="btn">S'enregistrer </button>
+</div>
+<p>deja membre? <a href="login.php">Se connecter</p>
+</form>
+
+{% endblock %}
