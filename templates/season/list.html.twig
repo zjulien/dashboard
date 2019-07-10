@@ -1,0 +1,28 @@
+{% extends "base.html.twig" %}
+{% block title %} liste des saisons {% endblock %}
+{% block content %}
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Saison</th>
+      
+    </tr>
+  </thead>
+  
+  <tbody>
+  {% for saison in saisons %}
+
+        <tr>
+        <th scope="row">{{saison.id}}</th>
+      <td>{{saison.nom_saison}}</td>
+      
+      <td>
+      <a href="/dashboard/season/edit/{{saison.id}}">modifier</a>
+      <a href="/dashboard/season/delete/{{saison.id}}">supprimer</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

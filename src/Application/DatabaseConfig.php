@@ -22,7 +22,8 @@ abstract class DatabaseConfig {
             // un \ devant PDO car PDO() n'appartient pas à mon espace de nom
             $this->db = new \PDO
                 ('mysql:host=' . getenv('HOSTNAME') . ';
-                dbname=' . getenv('DBNAME'), getenv('USER'), getenv('PASSWORD'));
+                dbname=' . getenv('DBNAME'), getenv('USER'), getenv('PASSWORD'),
+                [\PDO::ATTR_EMULATE_PREPARES => false] );
         } 
         catch (exception $e) {
             die('erreur : ' . $e->get->message());

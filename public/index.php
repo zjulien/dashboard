@@ -6,13 +6,28 @@ $router = new AltoRouter();
     'c' donne le nom de la classe Controller appelée
     'a' donne le nom de la méthode de la classe ci-dessus
 */
-$router->map('GET', '/', array('c' => 'DefaultController', 'a' => 'index'));
-$router->map('GET', '/produits', array('c' => 'ProduitsController', 'a' => 'index'));
-$router->map('GET', '/a-propos', array('c' => 'DefaultController', 'a' => 'about'));
-$router->map('GET', '/contact', array('c' => 'DefaultController', 'a' => 'default'));
+$router->map('GET|POST', '/', array('c' => 'SecurityController', 'a' => 'login'));
+$router->map('GET','/dashboard', array('c' => 'DashboardController', 'a' => 'index'));
+$router->map('GET','/logout', array('c' => 'SecurityController', 'a' => 'logout'));
+
+$router->map('GET','/dashboard/user', array('c' => 'UserController', 'a' => 'list'));
+$router->map('GET|POST','/dashboard/user/add', array('c' => 'UserController', 'a' => 'add'));
+
+$router->map('GET', '/dashboard/season', array('c' => 'SeasonController', 'a' => 'list'));
+
 $match = $router->match();
-$controller = 'App\\Controller\\' . $match['target']['c'];
-$action = $match['target']['a'];
+// var_dump($match); //on vérifie ce que la variable match contient
+$controller = 'App\\Controller\\' . $match['target']['c']; //les antislashs sont des caractères d'échappement
+// var_dump($controller); //on voit le chemin App\Controller\BlogController
+
+$action = $match['target']['a']; //On récupère que le 'a' qui est l'action
+
+
+//INSTANCIER L'OBJET D'APRES L'URL
 $object = new $controller();
+if (count($match['params']) === 0)
 $print = $object->{$action}();
+else
+$print = $object->{$action}($match['params']);
+
 echo $print;

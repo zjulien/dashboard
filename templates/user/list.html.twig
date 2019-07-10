@@ -1,0 +1,33 @@
+{% extends "base.html.twig" %}
+{% block title %} liste des utilisateurs {% endblock %}
+{% block content %}
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nom</th>
+      <th scope="col">Prenom</th>
+      <th scope="col">Email</th>
+      <th scope="col">Telephone</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  
+  <tbody>
+  {% for user in users %}
+
+        <tr>
+        <th scope="row">{{user.id}}</th>
+      <td>{{user.nom}}</td>
+      <td>{{user.prenom}}</td>
+      <td>{{user.mail}}</td>
+      <td>{{user.telephone}}</td>
+      <td>
+      <a href="/dashboard/user/edit/{{user.id}}">modifier</a>
+      <a href="/dashboard/user/delete/{{user.id}}">supprimer</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

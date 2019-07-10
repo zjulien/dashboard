@@ -44,4 +44,5 @@ abstract class Database extends DatabaseConfig {
 
          return $this->sth->fetch(\PDO::FETCH_ASSOC);
     }
+
 }
