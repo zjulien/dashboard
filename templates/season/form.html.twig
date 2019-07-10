@@ -1,0 +1,28 @@
+{% extends "base.html.twig" %}
+{% block title %} ajout d'une saison {% endblock %}
+
+{% block content %}
+<form action="/dashboard/season/add" method="post">
+{% if error is defined %}
+<div class ="alert alert-warning" role="alert">
+Veuillez corriger les erreurs
+</div>
+{% endif %}
+ <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="saison">Nom de la Saison</label>
+      <input type="text" class="form-control" id="saison" placeholder="saison:18-19" name="saison" value="{{saison.nom_saison}}">
+      {% if error is defined %}
+<small class ="alert text-danger" >
+Veuillez saisir un nom de saison
+</small>
+{% endif %}
+    </div>
+  </div>
+  
+  <button type="submit" class="btn btn-primary">Enregistrer</button>
+  <input type="hidden" name="form_season" value="1">
+</form>
+
+ 
+{% endblock %}

@@ -14,6 +14,7 @@ $router->map('GET','/dashboard/user', array('c' => 'UserController', 'a' => 'lis
 $router->map('GET|POST','/dashboard/user/add', array('c' => 'UserController', 'a' => 'add'));
 
 $router->map('GET', '/dashboard/season', array('c' => 'SeasonController', 'a' => 'list'));
+$router->map('GET|POST', '/dashboard/season/add', array('c' => 'SeasonController', 'a' => 'add'));
 
 $match = $router->match();
 // var_dump($match); //on vérifie ce que la variable match contient

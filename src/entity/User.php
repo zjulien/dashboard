@@ -26,7 +26,7 @@ public function getAllParents(){
 
 public function add($nom, $prenom, $mail, $telephone, $isadmin, $password){
     
-    $sql = 'insert into user(nom, prenom, mail, telephone, is_admin, mot_de_passe) values(:nom, :prenom, :mail, :telephone, :isadmin, password(:password))';
+    $sql = 'INSERT INTO user(nom, prenom, mail, telephone, is_admin, mot_de_passe) values(:nom, :prenom, :mail, :telephone, :isadmin, password(:password))';
     $this->prepare($sql);
     $this->bindParam(':nom', $nom, \PDO::PARAM_STR);
     $this->bindParam(':prenom', $prenom, \PDO::PARAM_STR);
