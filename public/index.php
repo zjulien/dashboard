@@ -16,6 +16,8 @@ $router->map('GET|POST','/dashboard/user/add', array('c' => 'UserController', 'a
 $router->map('GET', '/dashboard/season', array('c' => 'SeasonController', 'a' => 'list'));
 $router->map('GET|POST', '/dashboard/season/add', array('c' => 'SeasonController', 'a' => 'add'));
 
+$router->map('GET', '/dashboard/season/affected/[i:id]', array('c' =>'SeasonController', 'a' => 'affected'));
+
 $match = $router->match();
 // var_dump($match); //on vérifie ce que la variable match contient
 $controller = 'App\\Controller\\' . $match['target']['c']; //les antislashs sont des caractères d'échappement

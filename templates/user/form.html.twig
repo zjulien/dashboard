@@ -12,7 +12,7 @@ Veuillez corriger les erreurs
     <div class="form-group col-md-6">
       <label for="nom">Nom</label>
       <input type="text" class="form-control" id="nom" placeholder="nom" name="nom" value="{{values.nom}}">
-      {% if error is defined %}
+      {% if error.nom is defined %}
 <small class ="alert text-danger" >
 Veuillez saisir un nom
 </small>
@@ -21,7 +21,7 @@ Veuillez saisir un nom
     <div class="form-group col-md-6">
       <label for="prenom">Prénom</label>
       <input type="text" class="form-control" id="prenom" placeholder="prenom" name="prenom" value="{{values.prenom}}">
-      {% if error is defined %}
+      {% if error.prenom is defined %}
 <small class ="alert text-danger" >
 Veuillez saisir un prenom
 </small>
@@ -30,7 +30,7 @@ Veuillez saisir un prenom
     <div class="form-group col-md-6">
       <label for="mail">Email</label>
       <input type="email" class="form-control" id="mail" placeholder="mail" name="mail" value="{{values.mail}}">
-      {% if error is defined %}
+      {% if error.mail is defined %}
 <small class ="alert text-danger" >
 Veuillez saisir un mail
 </small>
@@ -39,7 +39,7 @@ Veuillez saisir un mail
     <div class="form-group col-md-6">
       <label for="telephonee">téléphone</label>
       <input type="text" class="form-control" id="telephone" placeholder="numero téléphone" name="telephone" value="{{values.telephone}}">
-      {% if error is defined %}
+      {% if error.telephone is defined %}
 <small class ="alert text-danger" >
 Veuillez saisir un telephone
 </small>

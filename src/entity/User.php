@@ -42,11 +42,10 @@ public function exist($mail){
     $this->bindParam(':mail', $mail, \PDO::PARAM_STR);
     $this->execute();
     $result = $this->fetch();
-
     if($result['number'] !== 0){
-        return false;
+        return true;
     }
-    return true;
+    return false;
 }
 
 

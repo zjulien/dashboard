@@ -1,0 +1,36 @@
+{% extends "base.html.twig" %}
+{% block title %} affectation joueur/saison{% endblock %}
+{% block content %}
+
+{% for saison in saisons %}
+<h1>{{saison.nom_saison}}</h1>
+{% endfor %}
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Nom</th>
+      <th scope="col">Prénom</th>
+      <th scope="col">Telephone</th>
+      <th scope="col">Affectation À cocher</th>
+
+    </tr>
+  </thead>
+  
+  <tbody>
+  {% for user in users %}
+
+        <tr>
+        <th scope="row">{{user.nom}}</th>
+        <th scope="row">{{user.prenom}}</th>
+        <th scope="row">{{user.telephone}}</th>
+         <input type="checkbox" id="scales" name="scales" checked></div>
+        <div>
+  
+     
+    </tr>
+    {% endfor %}
+    
+  </tbody>
+</table>
+{% endblock %}

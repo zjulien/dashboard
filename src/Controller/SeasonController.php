@@ -5,7 +5,7 @@ namespace App\Controller;
 use App\Application\Controller;
 use App\Application\DatabaseConfig;
 use App\Entity\Season;
-// use App\Entity\User;
+use App\Entity\User;
 use App\Services\UserLogged;
 
 
@@ -29,51 +29,76 @@ class SeasonController extends Controller
         );
     }
 
-    public function add(){
-if(!UserLogged::isLogged()){
-    header('Location: /');
-    return;
+    public function add()
+    {
+        if (!UserLogged::isLogged()) {
+            header('Location: /');
+            return;
+        }
+        if (isset($_POST['form_season'])) {
+            $season = new Season();
+            $reponseValidityForm = $this->validForm();
+            if (gettype($reponseValidityForm) === 'boolean' && !$season->exist($_POST['saison'])) {
 
-}
-if( isset($_POST['form_season'])){
-$season = new Season();
-$reponseValidityForm = $this->validForm();
-if(gettype($reponseValidityForm) === 'boolean' && !$season->exist($_POST['saison']) ){
-
-$season->add(
-    $_POST['saison']
-);
+                $season->add(
+                    $_POST['saison']
+                );
 
 
 
-header('Location: /dashboard/season');
-return;
+                header('Location: /dashboard/season');
+                return;
+            }
 
-}
-
-    return $this->twig->render(
-        'season/form.html.twig',
-        [
-            'error' =>$reponseValidityForm,
-            'values' =>$_POST
-        ]
-    );
-
+            return $this->twig->render(
+                'season/form.html.twig',
+                [
+                    'error' => $reponseValidityForm,
+                    'values' => $_POST
+                ]
+            );
+        }
+        return $this->twig->render(
+            'season/form.html.twig'
+        );
     }
-     return $this->twig->render(
-         'season/form.html.twig'
-     );
-}
 
-private function validForm(){
+    public function affected($id)
+
+    {
+        if (!UserLogged::isLogged()) {
+            header('Location: /');
+            return;
+        }
+
+        $user = new User();
+        $users = $user->getAllParents();
+        return $this->twig->render(
+            'season/affected.html.twig',
+            [
+                'users' => $users
+            ]
+        );
+    
+return $this->twig->render('season/affected.html.twig');
+}
+//selection de tout les parents non affecté à l'id
+
+//selection des parents affecté à l'id
+
+
+
+
+private function validForm()
+{
     $nomsaison = $_POST['saison'];
     $error = [];
 
-    if(strlen(trim($nomsaison)) ===0 ){
+    if (strlen(trim($nomsaison)) === 0) {
         $error['saison'] = true;
     }
-    
-    if(count ($error) !== 0 ){
+
+    if (count($error) !== 0) {
         return $error;
     }
     return true;
