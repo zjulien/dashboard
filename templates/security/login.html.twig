@@ -8,13 +8,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     
     <title>Login</title>
-    <link rel="stylesheet" href="build/css/">
+    <link rel="stylesheet" href="./build/css/login.css"/>
 </head>
 <body>
-    <div class="container">
+    <div class="container" id="alignFormulaire">
         <div class="row justify-content-md-center">
             <div class="col-10 ">
-               <form action="/" method ="post">
+               <form action="/" method ="post" class="Styleformulaire">
                {% if error is defined %}
                 <div class="alert alert-warning" role="alert">
                     Les identifiants saisies sont incorrectes

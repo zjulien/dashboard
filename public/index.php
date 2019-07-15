@@ -17,11 +17,16 @@ $router->map('GET', '/dashboard/season', array('c' => 'SeasonController', 'a' =>
 $router->map('GET|POST', '/dashboard/season/add', array('c' => 'SeasonController', 'a' => 'add'));
 
 $router->map('GET', '/dashboard/season/affected/[i:id]', array('c' =>'SeasonController', 'a' => 'affected'));
+$router->map('POST', '/dashboard/season/uptadeaffected', array('c' =>'SeasonController', 'a' => 'updateAffected'));
+
+$router->map('GET','/dashboard/event', array('c' => 'EventController', 'a' => 'list'));
+$router->map('GET|POST','/dashboard/event/add', array('c' => 'EventController', 'a' => 'add'));
+ 
 
 $match = $router->match();
-// var_dump($match); //on vérifie ce que la variable match contient
+
 $controller = 'App\\Controller\\' . $match['target']['c']; //les antislashs sont des caractères d'échappement
-// var_dump($controller); //on voit le chemin App\Controller\BlogController
+
 
 $action = $match['target']['a']; //On récupère que le 'a' qui est l'action
 

@@ -3,9 +3,14 @@
 {% block content %}
 
 {% for saison in saisons %}
-<h1>{{saison.nom_saison}}</h1>
+
+<h1>cochez les utilisateurs de la saison:{{saison.nom_saison}} </h1>
+
 {% endfor %}
 
+
+
+<form action="/dashboard/season/uptadeaffected" method="post" novalidate>
 <table class="table">
   <thead class="thead-dark">
     <tr>
@@ -21,16 +26,66 @@
   {% for user in users %}
 
         <tr>
-        <th scope="row">{{user.nom}}</th>
-        <th scope="row">{{user.prenom}}</th>
-        <th scope="row">{{user.telephone}}</th>
-         <input type="checkbox" id="scales" name="scales" checked></div>
-        <div>
-  
-     
+        
+        <td scope="row">{{user.nom}}</td>
+        <td scope="row">{{user.prenom}}</td>
+        <td scope="row">{{user.telephone}}</td>
+      <td> <input type="checkbox" id="affected" name="affected[]" value="{{user.id}}" > </td>
+        
     </tr>
+    
     {% endfor %}
     
+    
+
+
+
+
+
+
   </tbody>
+
 </table>
+
+
+
+
+<h2>Utilisateurs deja affecté à la Saison</h2>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Nom</th>
+      <th scope="col">Prénom</th>
+     <th scope="col">Telephone</th>
+      <th scope="col">Retirer</th>
+      </thead>
+  </tr>
+
+
+  
+    <tr>
+      <tbody>
+      {% for user_saison in usersaison %}
+      <td scope="row">{{user_saison.nom}}</td>
+        <td scope="row">{{user_saison.prenom}}</td>
+        <td scope="row">{{user_saison.telephone}}</td>
+        <td scope="row"></td>
+     <td> <input type="checkbox" id="desaffected" name="desaffected[]" value="{{user_saison.id}}" > </td>
+
+
+    </tr>
+
+      {% endfor %}
+    </tbody>
+    
+</table>
+
+<input class="btn btn-primary" type="submit" name="lol">
+<input name="form_affected" type="hidden" value="1" />
+<input name="saison" type="hidden" value="{{saison}}" />
+
+{# <input class="btn btn-primary" type="submit" name="lol">
+<input name="form_desaffected" type="hidden" value="1" />
+<input name="saison" type="hidden" value="{{saison}}" /> #}
+</form>
 {% endblock %}
