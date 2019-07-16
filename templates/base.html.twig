@@ -8,7 +8,7 @@
   
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link href="../public/build/css/login.css" rel="stylesheet">
+    <link rel="stylesheet" href="./build/css/login.css"/>
     <title>Sport - {% block title %} {% endblock %}</title>
 
   </head>
@@ -17,10 +17,10 @@
 
   
   <body>
-
-  <div class="container-fluid">
+<div id="base">
+  <div class="container-fluid" >
     <div class="row">
-      <div class="col-4">
+      <div class="col-4" id="dashboard">
       <ul class="nav flex-column">
   <li class="nav-item">
     <a class="nav-link active" href="/dashboard/user">Utilisateur</a>
@@ -37,7 +37,7 @@
     </li>
         </ul>
         <li class="nav-item">
-    <a class="nav-link" href="/dashboard/event/event">Evenement</a>
+    <a class="nav-link" href="/dashboard/event">Evenement</a>
     <ul class="nav flex-column">
     <li class="nav-item">
     <a class="nav-link" href="/dashboard/event/add">Ajouter</a>
@@ -54,7 +54,7 @@
       </div>
     </div>
   </div>
-    
+    </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

@@ -1,3 +1,102 @@
-body{
-    background-image: url("../../public/img/background_acceuil.jpg");
+////////////////////////////////////////////////////////////////////////////////////////////////////
+///////
+//////          SECTION : LOGIN.HTML.twig
+//////
+////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+body {
+    background-image: url("../../img/background_acceuil.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 98.3vh;
+  
+  
+  #alignFormulaire {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 1px solid white;
+    color: white;
+    height: 25vh;
+    position: relative;
+    width: 20%;
+    position: absolute;
+    top: 38%;
+    left: 40%;
+  
+  
+ .Styleformulaire {
+    height: 23vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+}
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+///////
+//////         FIN SECTION : BASE.HTML.twig
+//////
+////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+///////
+//////          SECTION : BASE.HTML.twig
+//////
+////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+#base{
+
+    color:red;
+    
+    #dashboard{
+        background-color: rgba(0, 0, 0, 0.7);
+        border: 1px solid white;
+        color: white;
+        height: 73vh;
+        max-width: 9vw;
+    }
+
+}
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+///////
+//////         FIN SECTION : BASE.HTML.twig
+//////
+////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
 }

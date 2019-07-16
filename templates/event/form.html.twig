@@ -1,0 +1,79 @@
+{% extends "base.html.twig" %}
+{% block title %} ajout d'un utilisateur {% endblock %}
+
+{% block content %}
+<form action="/dashboard/event/add" method="post">
+{% if error is defined %}
+<div class ="alert alert-warning" role="alert">
+Veuillez corriger les erreurs
+</div>
+{% endif %}
+  {# <div class="form-row">
+<div class="form-group col-md-6">
+      <label for="saison">Nom de la Saison</label>
+      <input type="text" class="form-control" id="saison" placeholder="saison:18-19" name="saison" value="{{saison.nom_saison}}">
+      {% if error is defined %}
+<small class ="alert text-danger" >
+Veuillez saisir un nom de saison
+</small>
+{% endif %}
+  </div> #}
+ 
+  <div class="dropdown ">
+ 
+ <select class="form-control col-md-6">
+  <div class="dropdown-menu " aria-labelledby="dropdownMenuButton">
+ 
+    {% for saison in saisons %}
+    <option value="{{saison.nom_saison}}" </option>
+      {% endfor %}
+  </select>
+  </div>
+  
+</div>
+ 
+    <div class="form-group col-md-6">
+      <label for="date">Date</label>
+      <input type="date" class="form-control" id="nom" placeholder="date" name="date" value="{{values.date}}">
+      {% if event.date is defined %}
+<small class ="alert text-danger" >
+Veuillez saisir une date
+</small>
+{% endif %}
+    </div>
+    
+    <div class="form-group col-md-6">
+      <label for="lieu">Lieu</label>
+      <input type="text" class="form-control" id="lieu" placeholder="lieu" name="lieu" value="{{values.lieu}}">
+      {% if error.lieu is defined %}
+<small class ="alert text-danger" >
+Veuillez saisir un lieu
+</small>
+{% endif %}
+    </div>
+    <div class="form-group col-md-6">
+      <label for="distance">Distance</label>
+      <input type="text" class="form-control" id="distance" placeholder="distance" name="distance" value="{{values.distance}}">
+      {% if error.distance is defined %}
+<small class ="alert text-danger" >
+Veuillez saisir une distance
+</small>
+{% endif %}
+    </div>
+    <div class="form-group col-md-6">
+      <label for="enfants">nombre d'enfants</label>
+      <input type="number" class="form-control" id="enfants" placeholder="enfants" name="enfants" value="{{values.enfants}}">
+      {% if error.enfants is defined %}
+<small class ="alert text-danger" >
+Veuillez saisir un nombre d'enfants
+</small>
+{% endif %}
+    </div>
+  </div>
+  
+  <button type="submit" class="btn btn-primary">Enregistrer</button>
+  <input type="hidden" name="form_event" value="1">
+</form>
+
+ 
+{% endblock %}

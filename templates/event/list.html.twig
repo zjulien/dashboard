@@ -1,0 +1,33 @@
+{% extends "base.html.twig" %}
+{% block title %} liste des evenements {% endblock %}
+{% block content %}
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+
+      <th scope="col">Date</th>
+      <th scope="col">Lieu</th>
+      <th scope="col">Distance</th>
+      <th scope="col">Nombre d'enfant</th>
+      
+    </tr>
+  </thead>
+  
+  <tbody>
+  {% for event in events %}
+
+        <tr>
+        <th scope="row">{{event.id}}</th>
+      <td>{{event.date}}</td>
+      <td>{{event.lieu}}</td>
+      <td>{{event.distance}}</td>
+      <td>{{event.nrb_enfants}}</td>
+      <td>
+      <a href="/dashboard/event/edit/{{event.id}}">modifier</a>
+      <a href="/dashboard/event/delete/{{event.id}}">supprimer</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
