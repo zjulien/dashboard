@@ -23,8 +23,9 @@
       <td>{{user.mail}}</td>
       <td>{{user.telephone}}</td>
       <td>
-      <a href="/dashboard/user/edit/{{user.id}}">modifier</a>
-      <a href="/dashboard/user/delete/{{user.id}}">supprimer</a>
+
+      <a href="/dashboard/user">modifier</a>
+      <a href="/dashboard/user/delete/{{ user.id }}">supprimer</a>
       </td>
     </tr>
     {% endfor %}

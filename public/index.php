@@ -10,9 +10,15 @@ $router->map('GET|POST', '/', array('c' => 'SecurityController', 'a' => 'login')
 $router->map('GET','/dashboard', array('c' => 'DashboardController', 'a' => 'index'));
 $router->map('GET','/logout', array('c' => 'SecurityController', 'a' => 'logout'));
 
+
 $router->map('GET','/dashboard/user', array('c' => 'UserController', 'a' => 'list'));
 $router->map('GET|POST','/dashboard/user/add', array('c' => 'UserController', 'a' => 'add'));
+$router->addMatchTypes(array('iduser' => '[0-9]{1,5}'));
+$router->map('GET', '/dashboard/user/delete/[i:iduser]', array('c'=> 'UserController', 'a' => 'delete'));
 
+
+$router->addMatchTypes(array('idsaison' => '[0-9]{1,5}'));
+$router->map('GET', '/dashboard/season/delete/[i:idsaison]', array('c'=> 'SeasonController', 'a' => 'delete'));
 $router->map('GET', '/dashboard/season', array('c' => 'SeasonController', 'a' => 'list'));
 $router->map('GET|POST', '/dashboard/season/add', array('c' => 'SeasonController', 'a' => 'add'));
 

@@ -2,10 +2,11 @@
 
 namespace App\Controller;
 
+use App\Entity\User;
+use App\Entity\Season;
+use App\Services\UserLogged;
 use App\Application\Controller;
 use App\Application\DatabaseConfig;
-use App\Entity\User;
-use App\Services\UserLogged;
 use App\Services\PasswordGenerator;
 
 class UserController extends Controller
@@ -96,5 +97,32 @@ class UserController extends Controller
         }
 
         return true;
+    }
+
+    public function delete( $param = []){
+
+        // var_dump($param);
+        //  die;
+        //   array(1) { ["iduser"]=> string(1) "2" }
+
+        if (!UserLogged::isLogged()) {
+            header('Location: /');
+            return;
+
+        }
+        $id = $param['iduser'];
+        $saison = new Season();
+        $saison->deleteUser($id);
+        $user = new User();
+        $user->delete($id);
+
+        // var_dump($user);
+        // die;
+        // object(App\Entity\User)#13 (2) { ["sth":"App\Application\Database":private]=> object(PDOStatement)#22 (1) { ["queryString"]=> string(32) "DELETE FROM user WHERE `id` =:id" } ["db"]=> object(PDO)#20 (0) { } }
+
+
+        header('Location:/dashboard/user');
+
+        
     }
 }

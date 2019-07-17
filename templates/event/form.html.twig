@@ -19,20 +19,13 @@ Veuillez saisir un nom de saison
 {% endif %}
   </div> #}
  
-  <div class="dropdown ">
- 
- <select class="form-control col-md-6">
-  <div class="dropdown-menu " aria-labelledby="dropdownMenuButton">
- 
-    {% for saison in saisons %}
-    <option value="{{saison.nom_saison}}" </option>
-      {% endfor %}
-  </select>
-  </div>
   
-</div>
  
-    <div class="form-group col-md-6">
+ 
+  
+
+ 
+    <div class="form-group col-md-3">
       <label for="date">Date</label>
       <input type="date" class="form-control" id="nom" placeholder="date" name="date" value="{{values.date}}">
       {% if event.date is defined %}
@@ -42,7 +35,7 @@ Veuillez saisir une date
 {% endif %}
     </div>
     
-    <div class="form-group col-md-6">
+    <div class="form-group col-md-3">
       <label for="lieu">Lieu</label>
       <input type="text" class="form-control" id="lieu" placeholder="lieu" name="lieu" value="{{values.lieu}}">
       {% if error.lieu is defined %}
@@ -51,7 +44,7 @@ Veuillez saisir un lieu
 </small>
 {% endif %}
     </div>
-    <div class="form-group col-md-6">
+    <div class="form-group col-md-3">
       <label for="distance">Distance</label>
       <input type="text" class="form-control" id="distance" placeholder="distance" name="distance" value="{{values.distance}}">
       {% if error.distance is defined %}
@@ -60,7 +53,7 @@ Veuillez saisir une distance
 </small>
 {% endif %}
     </div>
-    <div class="form-group col-md-6">
+    <div class="form-group col-md-3">
       <label for="enfants">nombre d'enfants</label>
       <input type="number" class="form-control" id="enfants" placeholder="enfants" name="enfants" value="{{values.enfants}}">
       {% if error.enfants is defined %}
@@ -70,7 +63,15 @@ Veuillez saisir un nombre d'enfants
 {% endif %}
     </div>
   </div>
-  
+
+  <select class="form-control col-md-3">
+  <div class="dropdown-menu " aria-labelledby="dropdownMenuButton">
+    {% for saison in saisons %}
+    <option value=" {{saison.id}} {{saison.nom_saison}}" </option>
+      {% endfor %}
+  </select>
+  </div>
+
   <button type="submit" class="btn btn-primary">Enregistrer</button>
   <input type="hidden" name="form_event" value="1">
 </form>

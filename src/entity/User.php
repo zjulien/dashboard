@@ -63,4 +63,17 @@ class User extends Database
         return $this->fetchAll();
     }
 
+    public function delete($id){
+
+        // var_dump($id);
+        //             die;   
+        //             string(1) "2" 
+
+        $sql='DELETE FROM user WHERE `id` =:id';
+        $this->prepare($sql);
+        $this->bindParam(':id', $id, \PDO::PARAM_INT);
+        $this->execute();
+        
+    }
+
 }

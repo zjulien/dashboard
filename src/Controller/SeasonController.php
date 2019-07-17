@@ -152,5 +152,23 @@ class SeasonController extends Controller
     //     }
     // }
 
+        public function delete( $param = []){
+
+            if (!UserLogged::isLogged()) {
+                header('Location: /');
+                return;
+    
+            }
+
+
+        $id = $param['idsaison'];
+        $saison = new Season;
+        $saison->deleteSaison($id);
+        
+        header('Location:/dashboard/season');
+
+        }
+
+
 
 }

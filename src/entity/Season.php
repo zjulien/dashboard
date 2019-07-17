@@ -92,11 +92,23 @@ class Season extends Database
     }
 
    
-    public function deleteUser($saison)
+    public function deleteUser($idUser)
     {
-        $sql = 'DELETE FROM user_saison WHERE user_id=:saison';
+        
+
+        $sql = 'DELETE FROM user_saison WHERE user_id=:user';
         $this->prepare($sql);
-        $this->bindParam(':saison', $saison, \PDO::PARAM_INT);
+        $this->bindParam(':user', $idUser, \PDO::PARAM_INT);
+        $this->execute();
+    }
+
+    public function deleteSaison($idSaison)
+    {
+        
+
+        $sql = 'DELETE FROM saison WHERE id=:id';
+        $this->prepare($sql);
+        $this->bindParam(':id', $idSaison, \PDO::PARAM_INT);
         $this->execute();
     }
 
