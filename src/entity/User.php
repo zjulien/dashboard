@@ -76,4 +76,14 @@ class User extends Database
         
     }
 
+
+    public function update($id){
+
+        $sql='UPDATE user SET nom = nom , prenom = prenom, mail = mail , telephone = telephone WHERE id = :id';
+        $this->prepare($sql);
+        $this->bindParam(':id' , $id, \PDO::PARAM_INT);
+        $this->execute();
+        
+    }
+
 }

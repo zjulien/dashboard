@@ -10,7 +10,7 @@ $router->map('GET|POST', '/', array('c' => 'SecurityController', 'a' => 'login')
 $router->map('GET','/dashboard', array('c' => 'DashboardController', 'a' => 'index'));
 $router->map('GET','/logout', array('c' => 'SecurityController', 'a' => 'logout'));
 
-
+$router->map('GET','/dashboard/user/edit/[i:iduser]', array('c' => 'UserController', 'a' => 'edit'));
 $router->map('GET','/dashboard/user', array('c' => 'UserController', 'a' => 'list'));
 $router->map('GET|POST','/dashboard/user/add', array('c' => 'UserController', 'a' => 'add'));
 $router->addMatchTypes(array('iduser' => '[0-9]{1,5}'));

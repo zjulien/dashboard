@@ -2,7 +2,7 @@
 {% block title %} ajout d'un utilisateur {% endblock %}
 
 {% block content %}
-<form action="/dashboard/user/add" method="post">
+<form action="{% if edit is defined %}/dashboard/user/edit/{{values.id}} {% else %} /dashboard/user/add {% endif %}" method="post">
 {% if error is defined %}
 <div class ="alert alert-warning" role="alert">
 Veuillez corriger les erreurs
@@ -46,8 +46,8 @@ Veuillez saisir un telephone
 {% endif %}
     </div>
   </div>
-  
-  <button type="submit" class="btn btn-primary">Enregistrer</button>
+
+  <button type="submit" class="btn btn-primary">{% if edit is defined %}Modifier {% else %}Enregistrer {% endif %}</button>
   <input type="hidden" name="form_user" value="1">
 </form>
 

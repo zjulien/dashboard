@@ -123,6 +123,32 @@ class UserController extends Controller
 
         header('Location:/dashboard/user');
 
-        
     }
+
+    public function edit($id) {
+
+        if (!UserLogged::isLogged()) {
+            header('Location: /');
+            return;
+
+        }
+        $user = new User();
+        $users = $user->update($id);
+        return $this->twig->render(
+            'user/form.html.twig',
+            [
+                'values' => $users,
+                'edit'=>true
+
+                        ]
+
+            );
+    
+
+    }
+
+        
+
+
+
 }
